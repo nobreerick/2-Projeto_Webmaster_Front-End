@@ -37,9 +37,9 @@ header {
 
 main {
     width: 100%;
-    height: 100%;
     background-color: white;
     display: flex;
+    flex-direction: column;
     padding: 0;
 }
 
@@ -50,8 +50,7 @@ section[id="backgroundImg"] {
     background-size:cover;
     background-repeat: no-repeat;
     align-self: center;
-    margin: 0 10%;
-    width: 100%;
+    width: 80%;
     height: 100%;
     position: relative;
 }
@@ -59,7 +58,9 @@ section[id="backgroundImg"] {
 div[id="underlayer01"] {
     float: right;
 }
+
 form {
+    border-radius: 10px;
     margin: 15px 30px;
     background-color: rgba(211, 211, 211,0.7);
     width: 340px;
@@ -69,6 +70,7 @@ form {
 }
 
 form p {
+    border-radius: 10px 10px 0px 0px;
     background-color: rgba(255, 255, 255, 0.4);
     text-align: center;
     padding: 20px;
@@ -90,10 +92,66 @@ form input[id="submit"]{
     margin-bottom: 30px;
 }
 
+.calltoaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 0 10%;
+    background-color: #29526D;
+    color: white;
+}
+
+.calltoaction p:first-child {
+    margin-top: 40px;
+}
+
+.calltoaction p:last-child {
+    margin-top: -10px;
+    margin-bottom: 40px;
+}
+
 .seta {
+    width: 45px;
+    height: 8%;
     position: absolute;
-    top: 96.3%;
+    top: 100%;
     left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.container {
+    margin: 0 10%;
+    background-color: purple;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(100px auto);
+}
+
+.content {
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #32678a;
+}
+
+.content > p {
+    padding: 0 15px;
+    text-align: justify;
+}
+
+.underlayerimg {
+    width: 100%;
+    background-color: rosybrown;
+    display: flex;
+    align-items: center;
+}
+
+.contentimg {
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
 }
 
 .clear {
@@ -102,20 +160,102 @@ form input[id="submit"]{
 }
 
 footer {
-    width: 100%;
+    border-radius: 100px 100px 0px 0px;
+    position: fixed;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
     height: 60px;
-    background-color: #00eb27;
+    background-color: #BBBBBB;
+}
+
+footer > img {
+    width: 140px;
+    height: 40px;
+    position: absolute;
+    top: 0.1px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+footer > p {
+    visibility: hidden;
+    text-align: center;
+}
+
+footer:hover {
+    animation: animacao_1 1s forwards;
 }
 
 @media screen and (max-width: 640px) {
+    header > img {
+        width: 150px;
+        height: 50px;
+    }
+    
     section[id="backgroundImg"] {
         margin: 0;
+        width: 100%;
+        height: 500px;
     }
+
     form {
         margin: 0;
         position: absolute;
-        top: 50%;
+        top: 0%;
+        left: 15%;   
+        transform: scale(0.8)
+    }
+    
+    .calltoaction {
+        width: 100%;
+        margin:0;
+    }
+
+    .seta {
+        position: absolute;
         left: 50%;
-        transform: translate(-50%,-50%);
+        top: 100%;
+        transform: translate(-50%,-50%) ;
+        width: 30px;
+        height: 30px;
+    }
+    .container {
+        margin: 0;
+        grid-template-columns: 1fr;
+    }
+
+    .content[id="content01"] {
+        order: 1;
+    }
+    .content[id="content02"] {
+        order: 3;
+    }
+    .content[id="content03"] {
+        order: 5;
+    }
+    .content[id="content04"] {
+        order: 7;
+    }
+    .underlayerimg[id="underlayerimg01"] {
+        order: 2;
+    }
+    .underlayerimg[id="underlayerimg02"] {
+        order: 4;   
+    }
+    .underlayerimg[id="underlayerimg03"] {
+        order: 6;
+    }
+    .underlayerimg[id="underlayerimg04"] {
+        order: 8;
+    }
+}
+
+@keyframes animacao_1 {
+    from {
+    }
+
+    to {
+       height: 25%;
     }
 }
